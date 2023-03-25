@@ -15,14 +15,16 @@ export async function input() {
       if (buffer.length > 0) {
         const lastChar = buffer[buffer.length - 1];
         const width = eaw.length(lastChar);
-        Deno.stdout.write(encoder.encode("\b \b".repeat(width)));
+        await Deno.stdout.write(encoder.encode("\b \b".repeat(width)));
         buffer = buffer.slice(0, buffer.length - 1);
       }
     } else {
-      Deno.stdout.write(encoder.encode(chunk));
+      await Deno.stdout.write(encoder.encode(chunk));
       buffer += chunk;
     }
   }
+
+  Deno.stdin.setRaw(false);
 
   return buffer;
 }
