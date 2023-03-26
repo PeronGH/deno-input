@@ -1,1 +1,2 @@
-export { input } from "./main.ts";
+import { input } from "./main.ts";
+export const lines = input();

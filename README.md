@@ -5,9 +5,7 @@ Fix full-width input issue with built-in `prompt()`
 ## usage
 
 ```typescript
-import { input } from "./mod.ts";
-
-const lines = input();
+import { lines } from "./mod.ts";
 
 const { value: nextLine } = await lines.next();
 // do something with `nextLine`
